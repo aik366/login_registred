@@ -1,7 +1,7 @@
 import customtkinter as ctk
 from CTkMessagebox import CTkMessagebox
 from PIL import Image
-from data.database import db_insert, login_exist, db_check
+from data.database import db_check
 
 
 class Login(ctk.CTkFrame):
@@ -32,7 +32,7 @@ class Login(ctk.CTkFrame):
             CTkMessagebox(title="Ошибка", message="Заполните все поля")
         elif db_check(self.entry_1.get(), self.entry_2.get()):
             self.entry_1.delete(0, "end")
-            self.entry_2.delete(0, "end")
+            self.entry_2.delete(0, "end") 
             self.button.focus()
             CTkMessagebox(title="Success", message="Вход прошел успешно")
         else:
